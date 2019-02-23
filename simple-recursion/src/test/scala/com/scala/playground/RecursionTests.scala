@@ -30,7 +30,7 @@ class RecursionTests extends FunSuite {
   }
 
   test("Sum of elements [3, 5, 7] is 15") {
-    assert(sum(List()) === 15)
+    assert(sum(List(3, 5, 7)) === 15)
   }
 
 }

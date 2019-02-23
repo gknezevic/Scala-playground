@@ -31,6 +31,10 @@ object Recursion {
   }
 
   def sum(inputList: List[Int]): Int = {
-    0
+    inputList match {
+      case Nil => 0
+      case x::Nil => x
+      case _ => inputList.head + sum(inputList.tail)
+    }
   }
 }
