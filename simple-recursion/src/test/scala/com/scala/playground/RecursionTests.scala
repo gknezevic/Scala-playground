@@ -25,4 +25,8 @@ class RecursionTests extends FunSuite {
     assert(min(List(1, 3, 9, 7)) === 1)
   }
 
+  test("Sum of empty list is 0") {
+    assert(sum(List()) === 0)
+  }
+
 }
