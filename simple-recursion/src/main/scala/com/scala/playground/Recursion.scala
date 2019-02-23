@@ -19,17 +19,28 @@ object Recursion {
     }
   }
 
+
+  /**
+    * Search for min element in the list. Different implementation then max function
+    *
+    * @param inputList List of integer elements
+    * @return min element of the list
+    */
   def min(inputList: List[Int]): Int = {
     inputList match {
       case Nil => throw new IllegalArgumentException
       case x::Nil => x
-      case _ => {
-        val minElement = min(inputList.tail)
-        if (inputList.head < minElement) inputList.head else minElement
-      }
+      case x::y::Nil => if (x < y) x else y
+      case _ => min(List(inputList.head,min(inputList.tail)))
     }
   }
 
+  /**
+    * Sum integers
+    *
+    * @param inputList
+    * @return
+    */
   def sum(inputList: List[Int]): Int = {
     inputList match {
       case Nil => 0
@@ -37,4 +48,5 @@ object Recursion {
       case _ => inputList.head + sum(inputList.tail)
     }
   }
+
 }
