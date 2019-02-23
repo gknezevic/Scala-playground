@@ -33,4 +33,8 @@ class RecursionTests extends FunSuite {
     assert(sum(List(3, 5, 7)) === 15)
   }
 
+  test("Sum of elements [3, 5, -7, -2] is -1") {
+    assert(sum(List(3, 5, -7, -2)) === -1)
+  }
+
 }
