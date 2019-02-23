@@ -30,5 +30,7 @@ object Recursion {
     }
   }
 
-  def sum(inputList: List[Int]): Int = ???
+  def sum(inputList: List[Int]): Int = {
+    0
+  }
 }
