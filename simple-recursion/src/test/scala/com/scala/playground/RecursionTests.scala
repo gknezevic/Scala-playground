@@ -29,4 +29,8 @@ class RecursionTests extends FunSuite {
     assert(sum(List()) === 0)
   }
 
+  test("Sum of elements [3, 5, 7] is 15") {
+    assert(sum(List()) === 15)
+  }
+
 }
