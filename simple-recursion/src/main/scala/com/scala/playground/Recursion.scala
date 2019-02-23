@@ -19,7 +19,16 @@ object Recursion {
     }
   }
 
-  def min(inputList: List[Int]): Int = ???
+  def min(inputList: List[Int]): Int = {
+    inputList match {
+      case Nil => throw new IllegalArgumentException
+      case x::Nil => x
+      case _ => {
+        val minElement = min(inputList.tail)
+        if (inputList.head < minElement) inputList.head else minElement
+      }
+    }
+  }
 
   def sum(inputList: List[Int]): Int = ???
 }

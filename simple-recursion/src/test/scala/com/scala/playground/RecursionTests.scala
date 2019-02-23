@@ -17,4 +17,12 @@ class RecursionTests extends FunSuite {
     intercept[IllegalArgumentException](max(List()))
   }
 
+  test("Min integer in the list should be -9") {
+    assert(min(List(1, 3, -9, 7)) === -9)
+  }
+
+  test("Smallest positive integer is 1") {
+    assert(min(List(1, 3, 9, 7)) === 1)
+  }
+
 }
