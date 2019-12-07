@@ -1,6 +1,7 @@
 package controllers
 
 import javax.inject._
+import play.api.libs.json.{JsObject, JsValue, Json}
 import play.api.mvc._
 import services.Counter
 
@@ -11,6 +12,10 @@ class RestController @Inject()(cc: ControllerComponents, counter: Counter)(impli
 
   def status = Action {
     Ok(models.Status("Everything works fine", counter.nextCount()).showMessage)
+  }
+
+  def jsonStatus: Action[AnyContent] = Action {
+    Ok(Json.toJson(models.Status("Everything works fine", counter.nextCount())))
   }
 
 }
