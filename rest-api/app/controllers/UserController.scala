@@ -17,10 +17,20 @@ class UserController @Inject() (cc: ControllerComponents, reactiveMongo: Reactiv
 
   def collection: Future[JSONCollection] = database.map(_.collection[JSONCollection]("users"))
 
-  def createTemp = create("Pera", "pera@gmail.com")
+  def create = Action.async { request =>
+    val params = request.body.asFormUrlEncoded.getOrElse(Map.empty[String, scala.Seq[String]])
+    val name = params.get("name").get match {
+      case Nil => ""
+      case a :: _ => a
+    }
+    val email = params.get("email") match {
+      case Some(value) => value match {
+        case Nil => ""
+        case a :: _ => a
+      }
+      case _ => ""
+    }
 
-
-  def create(name: String, email: String) = Action.async {
     collection.flatMap(_.insert.one(models.User(name, email))).map(status => Ok("Mongo insert result: %s".format(status)))
   }
 
